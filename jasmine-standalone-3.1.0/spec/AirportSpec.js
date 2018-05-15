@@ -53,4 +53,11 @@ describe("Airport.isplaneInAirport", function() {
     airport.land(plane)
     expect(airport.isplaneInAirport(plane)).toBe(true)
   });
+  it("should return false if plane is not in airport", function() {
+    airport = new Airport
+    plane = 'plane'
+    airport.land(plane)
+    airport.takeOff(plane)
+    expect(airport.isplaneInAirport(plane)).toBe(false)
+  });
 });
