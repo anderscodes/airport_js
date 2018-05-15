@@ -22,17 +22,17 @@ describe("Airport.land", function() {
   });
 });
 
-describe("Airport.take_off", function() {
+describe("Airport.takeOff", function() {
   it("Should remove the selected plane from the planes array", function(){
     airport = new Airport
     plane = {}
     airport.land(plane)
-    airport.take_off(plane)
+    airport.takeOff(plane)
     expect(airport.planes).toEqual([]);
   });
 });
 
-describe("Airport.take_off", function() {
+describe("Airport.takeOff", function() {
   it("Should remove the selected plane from the planes array", function(){
     airport = new Airport
     plane1 = 'plane1'
@@ -41,8 +41,16 @@ describe("Airport.take_off", function() {
     airport.land(plane1)
     airport.land(plane2)
     airport.land(plane3)
-    airport.take_off(plane2)
-    console.log(airport.planes)
+    airport.takeOff(plane2)
     expect(airport.planes).toEqual(['plane1', 'plane3']);
+  });
+});
+
+describe("Airport.isplaneInAirport", function() {
+  it("Should return true if plane is in airport", function() {
+    airport = new Airport
+    plane = 'plane'
+    airport.land(plane)
+    expect(airport.isplaneInAirport(plane)).toBe(true)
   });
 });
