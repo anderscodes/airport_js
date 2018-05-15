@@ -20,6 +20,16 @@ describe("Airport.land", function() {
     airport.land(plane)
     expect(airport.planes).toEqual([plane]);
   });
+  it("should raise an error if the airport is full", function(){
+    airport = new Airport
+    times = 55
+    plane = {}
+    for(var i=0; i<times; i++) {
+    airport.land(plane);
+    }
+    console.log(airport.planes)
+    expect(function() {airport.land(plane);}).toThrow("Airport is FULL!");
+  })
 });
 
 describe("Airport.takeOff", function() {
